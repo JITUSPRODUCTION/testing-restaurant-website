@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIN COOKS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* Reset Default Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Pacifico Font for Website Name */
+        .logo {
+            font-family: 'Pacifico', cursive;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Melting Pizza Animation */
+        .logo::after {
+            content: " 🍕";
+            display: inline-block;
+            font-size: 28px;
+            position: absolute;
+            animation: melt 1.5s infinite alternate;
+        }
+
+        @keyframes melt {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(5px); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Menu Section */
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            text-align: center;
+            width: 250px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Order Button */
+        .order-btn {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 15px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .order-btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Recipe Section */
+        .recipe-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .recipe {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            width: 250px;
+        }
+
+        .recipe h3 {
+            color: #ff5722;
+            margin-bottom: 10px;
+        }
+
+        .recipe ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recipe li {
+            padding: 5px;
+        }
+
+        /* Footer Navigation Bar */
+        .footer-nav {
+            background-color: #222;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu, .recipe-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card, .recipe {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h1 class="logo">JIN COOKS</h1>
+    </nav>
+
+    <div class="container">
+        <!-- Main Section with Three Cards -->
+        <div class="menu">
+            <div class="card">
+                <img src="piz.jpg" alt="Pizza">
+                <button class="order-btn" onclick="placeOrder(this, 'Pizza')">Order</button>
+            </div>
+            <div class="card">
+                <img src="bur.jpg" alt="Burger">
+                <button class="order-btn" onclick="placeOrder(this, 'Burger')">Order</button>
+            </div>
+            <div class="card">
+                <img src="moj.jpg" alt="Mojito">
+                <button class="order-btn" onclick="placeOrder(this, 'Mojito')">Order</button>
+            </div>
+        </div>
+
+        <!-- Recipe Section Below Images -->
+        <div class="recipe-container">
+            <div class="recipe">
+                <h3>Pizza Ingredients</h3>
+                <ul>
+                    <li>Whole wheat flour</li>
+                    <li>Tomato sauce</li>
+                    <li>Vegetarian cheese</li>
+                    <li>Bell peppers, onions, olives</li>
+                    <li>Basil and oregano</li>
+                </ul>
+            </div>
+            <div class="recipe">
+                <h3>Burger Ingredients</h3>
+                <ul>
+                    <li>Whole wheat burger buns</li>
+                    <li>Veggie patty (potato, beans, spices)</li>
+                    <li>Vegan cheese</li>
+                    <li>Lettuce, tomato, onions</li>
+                    <li>Mustard and ketchup</li>
+                </ul>
+            </div>
+            <div class="recipe">
+                <h3>Mojito Ingredients</h3>
+                <ul>
+                    <li>Fresh mint leaves</li>
+                    <li>Lime juice</li>
+                    <li>Honey</li>
+                    <li>Soda water</li>
+                    <li>Ice cubes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Navigation Bar -->
+    <div class="footer-nav">
+        <a href="mailto:technicaljitu725@gmail.com">Contact Us</a>
+    </div>
+
+    <script>
+        function placeOrder(button, itemName) {
+            button.innerHTML = "Processing...";
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.innerHTML = "✔ Order has been placed";
+                button.style.backgroundColor = "#4CAF50";
+
+                // Open email after the text updates
+                setTimeout(() => {
+                    window.location.href = "https://mailto=technicaljitu725@gmail"
+                }, 1000);
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
